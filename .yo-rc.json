@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "de.dittje"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "monolith",
+    "baseName": "NooMe",
+    "packageName": "de.dittje",
+    "packageFolder": "de/dittje",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "caffeine",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YWQxNDkxMzkyOGNiMTI1MGRlNTU4MTA1NjQ0NDkzNDY5ZDgyZTkyODQwOWU3YWY2ZTA3OTk0MDE2MWQ3MmY0NGZlNjczMGVmODI0NTY1YzBlM2M4NjRhZDE2MTBkMDliZjcwMzgzYmIzZDI1MzM5YTJkMGEyMjViZWJlOWRkZGY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "sketchy",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1602436023092,
+    "testFrameworks": ["cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
