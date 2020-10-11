@@ -1,0 +1,35 @@
+{
+  "name": "Serving",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "unit",
+      "fieldType": "Unit",
+      "fieldValues": "TSP (tsp),TBSP (tbsp),ML (ml),L (l),MG (mg),G (g),KG (kg),CAN (can),PINCH (pinch),PIECE (piece)",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ingredient",
+      "otherEntityRelationshipName": "serving",
+      "relationshipName": "ingredient"
+    }
+  ],
+  "changelogDate": "20201011180704",
+  "entityTableName": "serving",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-ingredient-heading">Create or edit a Ingredient</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                    <div *ngIf="editForm.get('quantity')!.invalid && (editForm.get('quantity')!.dirty || editForm.get('quantity')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('quantity')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('quantity')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_food">Food</label>
+                    <select class="form-control" id="field_food" name="food" formControlName="foodId">
+                        <option *ngIf="!editForm.get('foodId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="foodItemOption.id" *ngFor="let foodItemOption of fooditems; trackBy: trackById">{{ foodItemOption.name }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('foodId')!.invalid && (editForm.get('foodId')!.dirty || editForm.get('foodId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('foodId')?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_serving">Serving</label>
+                    <select class="form-control" id="field_serving" name="serving" formControlName="servingId">
+                        <option *ngIf="!editForm.get('servingId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="servingOption.id" *ngFor="let servingOption of servings; trackBy: trackById">{{ servingOption.unit }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('servingId')!.invalid && (editForm.get('servingId')!.dirty || editForm.get('servingId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('servingId')?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_recipe">Recipe</label>
+                    <select class="form-control" id="field_recipe" name="recipe" formControlName="recipeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipeOption.id" *ngFor="let recipeOption of recipes; trackBy: trackById">{{ recipeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

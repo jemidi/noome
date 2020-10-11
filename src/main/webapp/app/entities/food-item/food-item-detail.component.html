@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="foodItem">
+            <h2><span>Food Item</span> {{ foodItem.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Brand</span></dt>
+                <dd>
+                    <span>{{ foodItem.brand }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ foodItem.name }}</span>
+                </dd>
+                <dt><span>Calories</span></dt>
+                <dd>
+                    <span>{{ foodItem.calories }}</span>
+                </dd>
+                <dt><span>Total Fat</span></dt>
+                <dd>
+                    <span>{{ foodItem.totalFat }}</span>
+                </dd>
+                <dt><span>Saturated</span></dt>
+                <dd>
+                    <span>{{ foodItem.saturated }}</span>
+                </dd>
+                <dt><span>Polyunsaturated</span></dt>
+                <dd>
+                    <span>{{ foodItem.polyunsaturated }}</span>
+                </dd>
+                <dt><span>Monounsaturated</span></dt>
+                <dd>
+                    <span>{{ foodItem.monounsaturated }}</span>
+                </dd>
+                <dt><span>Trans</span></dt>
+                <dd>
+                    <span>{{ foodItem.trans }}</span>
+                </dd>
+                <dt><span>Total Carbs</span></dt>
+                <dd>
+                    <span>{{ foodItem.totalCarbs }}</span>
+                </dd>
+                <dt><span>Fibre</span></dt>
+                <dd>
+                    <span>{{ foodItem.fibre }}</span>
+                </dd>
+                <dt><span>Sugars</span></dt>
+                <dd>
+                    <span>{{ foodItem.sugars }}</span>
+                </dd>
+                <dt><span>Protein</span></dt>
+                <dd>
+                    <span>{{ foodItem.protein }}</span>
+                </dd>
+                <dt><span>Cholesterol</span></dt>
+                <dd>
+                    <span>{{ foodItem.cholesterol }}</span>
+                </dd>
+                <dt><span>Sodium</span></dt>
+                <dd>
+                    <span>{{ foodItem.sodium }}</span>
+                </dd>
+                <dt><span>Potassium</span></dt>
+                <dd>
+                    <span>{{ foodItem.potassium }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/food-item', foodItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

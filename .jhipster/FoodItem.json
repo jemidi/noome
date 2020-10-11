@@ -1,0 +1,91 @@
+{
+  "name": "FoodItem",
+  "fields": [
+    {
+      "fieldName": "brand",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "250"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "250"
+    },
+    {
+      "fieldName": "calories",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "totalFat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "saturated",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "polyunsaturated",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "monounsaturated",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "trans",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalCarbs",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fibre",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "sugars",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "protein",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "cholesterol",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "sodium",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "potassium",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ingredient",
+      "otherEntityRelationshipName": "food",
+      "relationshipName": "ingredient"
+    }
+  ],
+  "changelogDate": "20201011180604",
+  "entityTableName": "food_item",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

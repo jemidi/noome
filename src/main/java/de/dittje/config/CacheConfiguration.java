@@ -47,6 +47,16 @@ public class CacheConfiguration {
             createCache(cm, de.dittje.domain.User.class.getName());
             createCache(cm, de.dittje.domain.Authority.class.getName());
             createCache(cm, de.dittje.domain.User.class.getName() + ".authorities");
+            createCache(cm, de.dittje.domain.Recipe.class.getName());
+            createCache(cm, de.dittje.domain.Recipe.class.getName() + ".ingredients");
+            createCache(cm, de.dittje.domain.Ingredient.class.getName());
+            createCache(cm, de.dittje.domain.Ingredient.class.getName() + ".foods");
+            createCache(cm, de.dittje.domain.Ingredient.class.getName() + ".servings");
+            createCache(cm, de.dittje.domain.Ingredient.class.getName() + ".recipes");
+            createCache(cm, de.dittje.domain.FoodItem.class.getName());
+            createCache(cm, de.dittje.domain.Serving.class.getName());
+            createCache(cm, de.dittje.domain.FoodItem.class.getName() + ".ingredients");
+            createCache(cm, de.dittje.domain.Serving.class.getName() + ".ingredients");
             // jhipster-needle-caffeine-add-entry
         };
     }

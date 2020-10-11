@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span>Food Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-food-item" [routerLink]="['/food-item/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down">
+            Create a new Food Item
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="foodItems?.length === 0">
+        <span>No foodItems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="foodItems && foodItems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Brand</span></th>
+                    <th scope="col" ><span>Name</span></th>
+                    <th scope="col" ><span>Calories</span></th>
+                    <th scope="col" ><span>Total Fat</span></th>
+                    <th scope="col" ><span>Saturated</span></th>
+                    <th scope="col" ><span>Polyunsaturated</span></th>
+                    <th scope="col" ><span>Monounsaturated</span></th>
+                    <th scope="col" ><span>Trans</span></th>
+                    <th scope="col" ><span>Total Carbs</span></th>
+                    <th scope="col" ><span>Fibre</span></th>
+                    <th scope="col" ><span>Sugars</span></th>
+                    <th scope="col" ><span>Protein</span></th>
+                    <th scope="col" ><span>Cholesterol</span></th>
+                    <th scope="col" ><span>Sodium</span></th>
+                    <th scope="col" ><span>Potassium</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let foodItem of foodItems ;trackBy: trackId">
+                    <td><a [routerLink]="['/food-item', foodItem.id, 'view']">{{ foodItem.id }}</a></td>
+                    <td>{{ foodItem.brand }}</td>
+                    <td>{{ foodItem.name }}</td>
+                    <td>{{ foodItem.calories }}</td>
+                    <td>{{ foodItem.totalFat }}</td>
+                    <td>{{ foodItem.saturated }}</td>
+                    <td>{{ foodItem.polyunsaturated }}</td>
+                    <td>{{ foodItem.monounsaturated }}</td>
+                    <td>{{ foodItem.trans }}</td>
+                    <td>{{ foodItem.totalCarbs }}</td>
+                    <td>{{ foodItem.fibre }}</td>
+                    <td>{{ foodItem.sugars }}</td>
+                    <td>{{ foodItem.protein }}</td>
+                    <td>{{ foodItem.cholesterol }}</td>
+                    <td>{{ foodItem.sodium }}</td>
+                    <td>{{ foodItem.potassium }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/food-item', foodItem.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/food-item', foodItem.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(foodItem)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

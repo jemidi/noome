@@ -1,0 +1,46 @@
+{
+  "name": "Ingredient",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "foodItem",
+      "otherEntityRelationshipName": "ingredient",
+      "relationshipValidateRules": "required",
+      "relationshipName": "food",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "serving",
+      "otherEntityRelationshipName": "ingredient",
+      "relationshipValidateRules": "required",
+      "relationshipName": "serving",
+      "otherEntityField": "unit"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "recipe",
+      "otherEntityRelationshipName": "ingredients",
+      "relationshipName": "recipe",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201011180504",
+  "entityTableName": "ingredient",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

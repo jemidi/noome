@@ -1,0 +1,64 @@
+entity Recipe {
+   id UUID required unique,
+   name String required minlength(1) maxlength(250),
+   portions Integer min(1) max(100)
+}
+
+entity Ingredient {
+   id UUID required unique
+   quantity Float required
+}
+
+entity FoodItem {
+	id UUID required unique
+	brand String required minlength(1) maxlength(250)
+    name String required minlength(1) maxlength(250)
+    // Nutritional Facts
+    calories Double required
+
+    totalFat Double
+    saturated Double
+    polyunsaturated Double
+    monounsaturated Double
+    trans Double
+
+    totalCarbs Double
+    fibre Double
+    sugars Double
+
+    protein Double
+
+    cholesterol Double
+    sodium Double
+    potassium Double
+
+    //vitaminA Double
+    //vitaminC Double
+}
+
+entity Serving {
+    id UUID required unique,
+    quantity Float required,
+    unit Unit required
+}
+
+enum Unit {
+   TSP("tsp"),
+   TBSP("tbsp"),
+   ML("ml"),
+   L("l"),
+   MG("mg"),
+   G("g"),
+   KG("kg"),
+   CAN("can"),
+   PINCH("pinch"),
+   PIECE("piece")
+}
+
+relationship OneToMany {
+	FoodItem to Ingredient{food(name) required},
+    Serving to Ingredient{serving(unit) required},
+    Recipe{ingredients} to Ingredient
+}
+
+dto * with mapstruct
